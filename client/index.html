@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LLL</title>
+</head>
+<body>
+
+<div>
+    <div>
+        Your player ID: <input type="text" readonly id="playerId" value="" size="32" />
+
+        <button id="login" type="button" title="Login">
+            Login
+        </button>
+        <button id="logout" type="button" title="Logout">
+            Logout
+        </button>
+    </div>
+    <div>
+        <div>
+            Current game Id: <input type="text" id="gameId" value="" size="32" />
+
+            <button id="joinGame" type="button" title="Join game">
+                Join game
+            </button>
+
+            or
+
+            <button id="createGame" type="button" title="Create game">
+                Create new game
+            </button>
+        </div>
+
+        <div>
+            Connected: <input type="checkbox" id="connected" readonly />
+
+            <button id="connectButton" type="button" title="Connect">
+                Connect to game
+            </button>
+
+           
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div>
+    <div>
+        <button id="reloadButton" type="button" title="Reload game status">
+            Reload game status
+        </button>
+    </div>
+    <div>
+        Players: <span id="numJoinedPlayers">0</span> / <span id="numPlayers">0</span>
+    </div>
+    <div>
+        Connected: <span id="numConnectedPlayers">0</span> / <span id="numConnections">0</span>
+    </div>
+
+    <div id="gameStarted" style="display:none;">
+        <div>
+            Current round: <input type="text" readonly id="currentRound" value="None" size="32" />
+        </div>
+        <div>
+            Current turn: <input type="text" readonly id="currentTurn" value="None" size="32" />
+        </div>
+        <div>
+            Current player: <input type="text" readonly id="currentPlayer" value="None" size="32" />
+        </div>
+
+        <div id="notPlayerTurn" style="display:none;">
+            Your card: <input type="text" readonly id="handCard" value="None" size="32" />
+        </div>
+
+        <div id="playerTurn" style="display:none;">
+            <strong>It's your turn!</strong><br />
+
+            <div>
+
+                <div id="playerHand">
+                    Card: 
+                    <input type="radio" name="card" value="{card}" /><label>{card}</label>
+                    <input type="radio" name="card" value="{card}" /><label>{card}</label>
+                    <input type="radio" name="card" value="{card}" /><label>{card}</label>
+                </div>
+
+                <div id="targets">
+                    Target:
+
+                    <select name="target" id="targetSelect">
+                        <option value="">Select a target player</option>
+                        <option value="{playerId}">{playerId}</option>
+                        <option value="{playerId}">{playerId}</option>
+                        <option value="{playerId}">{playerId}</option>
+                        <option value="{playerId}">{playerId}</option>
+                    </select>
+                </div>
+
+                <div id="guesses">
+                    Guess:
+
+                    <!--<input type="radio" name="guess" value="0-bonus"     /><label>0-bonus</label>-->
+                    <input type="radio" name="guess" value="2-spy"       /><label>2-spy</label>
+                    <input type="radio" name="guess" value="3-challenge" /><label>3-challenge</label>
+                    <input type="radio" name="guess" value="4-protect"   /><label>4-protect</label>
+                    <input type="radio" name="guess" value="5-force"     /><label>5-force</label>
+                    <!--<input type="radio" name="guess" value="6-shuffle"   /><label>6-shuffle</label>-->
+                    <input type="radio" name="guess" value="7-trade"     /><label>7-trade</label>
+                    <input type="radio" name="guess" value="8-discard"   /><label>8-discard</label>
+                    <input type="radio" name="guess" value="9-keep"      /><label>9-keep</label>
+                </div>
+
+                <button id="playButton" type="button" title="Play">
+                    Play
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<br />
+
+<pre id="messages" style="height: 420px; overflow: scroll;"></pre>
+
+<script src="app.js"></script>
+</body>
+</html>
